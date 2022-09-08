@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as dotenv from "dotenv";
 
-import { headers } from "../../constant";
+import { curHeaders } from "../../../constant";
 dotenv.config();
 
 export const createKIP17Contract = async () => {
@@ -9,16 +9,16 @@ export const createKIP17Contract = async () => {
     const { data: result } = await axios.post(
       "https://kip17-api.klaytnapi.com/v2/contract",
       {
-        headers,
-        body: {
-          alias: "test1Alias",
-          symbol: "TEST1SYMBOL",
-          name: "test1Name",
-          owner: process.env.BOW_TEST_ACCOUNT,
-          options: {
-            enableGlobalFeePayer: true,
-          },
+        alias: "test1Alias",
+        symbol: "TEST1SYMBOL",
+        name: "test1Name",
+        owner: process.env.BOW_TEST_ACCOUNT,
+        options: {
+          enableGlobalFeePayer: true,
         },
+      },
+      {
+        headers: curHeaders,
       }
     );
 

@@ -2,7 +2,7 @@ import axios from "axios";
 import * as dotenv from "dotenv";
 import { prompt } from "prompts";
 
-import { headers } from "../../constant";
+import { curHeaders } from "../../constant";
 dotenv.config();
 
 const getPromptResult = async () => {
@@ -16,6 +16,7 @@ const getPromptResult = async () => {
 
   return address;
 };
+
 export const getAccountInfo = async () => {
   const address = await getPromptResult();
   console.log("address :>> ", address);
@@ -23,7 +24,7 @@ export const getAccountInfo = async () => {
   try {
     const { data: account } = await axios.get(
       `https://wallet-api.klaytnapi.com/v2/account/${address}`,
-      { headers }
+      { headers: curHeaders }
     );
 
     console.log("account :>> ", account);
