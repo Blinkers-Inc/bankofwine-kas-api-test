@@ -1,15 +1,12 @@
 import axios from "axios";
-import { headers } from "../../constant";
-import { getContractAddress } from "./001.getContractList";
 
-const getContractInfo = async () => {
-  const address = await getContractAddress();
-  console.log("address", address);
+import { curHeaders } from "../../constant";
 
+const getContractInfo = async (contractAddress: string) => {
   try {
     const { data } = await axios.get(
-      `https://kip17-api.klaytnapi.com/v2/contract/${address}`,
-      { headers }
+      `https://kip17-api.klaytnapi.com/v2/contract/${contractAddress}`,
+      { headers: curHeaders }
     );
 
     console.log("data", data);
@@ -21,7 +18,7 @@ const getContractInfo = async () => {
 };
 
 const main = async () => {
-  return await getContractInfo();
+  return await getContractInfo("hello");
 };
 
 main();

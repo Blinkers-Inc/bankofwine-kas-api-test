@@ -2,13 +2,13 @@ import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-
 dotenv.config();
 
 export const curHeaders = {
-  Authorization: process.env.KAS_AUTHORIZATION!,
-  "x-chain-id": process.env.KAS_CHAIN_ID!,
+  Authorization: process.env.TESTNET_KAS_AUTHORIZATION!,
+  "x-chain-id": process.env.TESTNET_KAS_CHAIN_ID!,
   "Content-Type": "application/json",
 };
 
 export const newHeaders = {
   Authorization: process.env.NEW_KAS_AUTHORIZATION!,
-  "x-chain-id": process.env.KAS_CHAIN_ID!,
+  "x-chain-id": process.env.TESTNET_KAS_CHAIN_ID!,
   "Content-Type": "application/json",
 };
