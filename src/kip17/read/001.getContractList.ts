@@ -2,7 +2,7 @@ import axios from "axios";
 import * as dotenv from "dotenv";
 import { prompt } from "prompts";
 
-import { headers } from "../../constant";
+import { curHeaders } from "../../constant";
 dotenv.config();
 
 export const getContractList = async () => {
@@ -25,7 +25,7 @@ export const getContractList = async () => {
   try {
     const { data: contractList } = await axios.get(
       "https://kip17-api.klaytnapi.com/v2/contract",
-      { headers }
+      { headers: curHeaders }
     );
     const { cursor, items } = contractList;
 
